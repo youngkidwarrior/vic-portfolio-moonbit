@@ -30,10 +30,16 @@ Computer-use comparison after the layout repairs matched production's rounded ma
 
 Two cold mobile Lighthouse runs measured production at 1.54–1.65s first paint and 2.30–2.32s largest paint; the final release measured 1.21s and 3.05s. Both had zero blocking time and layout shift. The dev build's single run measured 3.01s and 6.31s. These compare a remote production host with a local preview under the same simulated slow 4G/CPU settings, and do not establish a language performance advantage. The remaining largest-paint gap needs further profiling.
 
+## Content reuse and backend benchmark
+
+An explicit `Renderer` owns validated content with private fields. Browser initialization and prerendering create one context and reuse it for bodies and metadata; the year remains a per-render argument. The original stateless APIs remain compatible. Contexts are independent, and failed construction cannot replace or poison an existing context. No DOM, history, focus, storage, or animation behavior moved across the language boundary.
+
+`bun run benchmark` builds an isolated release copy and compares both backends on one local origin with fresh Chromium processes, matching preloads, identical assets and compression, alternating trials, and exact output checks. [The recorded comparison](docs/benchmarks/2026-10-10-backends.md) includes method, medians/ranges, payload sizes, identities and limitations. Raw runs live in `evidence/benchmark/`.
+
 ## Dependencies and tradeoffs
 
 `justjavac/template@0.1.1` supplies escaped HTML rendering primitives without a browser framework or target restriction. Rabbita 0.13.1 was inspected but its actual manifests support JavaScript and native, which does not meet the Wasm browser target. The template package is pinned in `moon.mod`; JavaScript dev/test dependencies are pinned in `package.json` and `bun.lock`.
 
 `content/site.json` and `content/resume.json` preserve the original portfolio data. Native web animations now follow the original entrance and artwork sequence parameters, pointer spring settings, and selected-project image/frame transitions. Exact spring integration and physical-device pacing have not been established. Eight original icon paths still require SeekMoon authoring; automatic approval review blocked the external-provider request pending explicit data-sharing approval. The portfolio has not been deployed.
 
-SeekMoon authors the MoonBit source through the authenticated local CLI launcher; Codex owns the browser host and build integration and independently verifies the resulting artifact. No formal proofs are promised for this UI port.
+SeekMoon authored the initial MoonBit source through the authenticated local CLI launcher. At the user’s explicit request, GPT-6 Astra authored the content-reuse follow-up; Codex owns browser/build integration and independent verification. No formal proofs are promised for this UI port.

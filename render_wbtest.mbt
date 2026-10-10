@@ -432,3 +432,68 @@ test "invalid configuration raises instead of rendering" {
   }
   assert_true(missing_project is None)
 }
+
+///|
+test "renderer reuse preserves routes metadata and request years" {
+  let site = fixture_site_json()
+  let resume_content = fixture_resume_json()
+  let renderer = Renderer::new(site, resume_content)
+  for year in [2026, 2027, 2026] {
+    for
+      path in [
+        "/", "/resume/", "/work/send", "/work/shenanigan", "/work/brightid", "/work/open-source",
+        "/unknown",
+      ] {
+      assert_eq(
+        renderer.render_page(path, year),
+        render_page(path, site, resume_content, year),
+      )
+      assert_eq(
+        renderer.page_metadata(path),
+        page_metadata(path, site, resume_content),
+      )
+      assert_true(
+        renderer.render_page(path, year).contains("© \{year} Victor Ginelli"),
+      )
+    }
+  }
+}
+
+///|
+test "renderer contexts isolate changed inputs and survive rejected content" {
+  let site = fixture_site_json()
+  let resume_content = fixture_resume_json()
+  let first = Renderer::new(site, resume_content)
+  let changed_site = site
+    .replace_all(old="Victor Ginelli", new="Another Author")
+    .to_string()
+  let changed_resume = resume_content
+    .replace_all(old="Victor Ginelli", new="Resume Author")
+    .to_string()
+  let second = Renderer::new(changed_site, changed_resume)
+  assert_true(second.render_page("/", 2027).contains("Another Author"))
+  assert_true(second.render_page("/resume", 2027).contains("Resume Author"))
+  assert_true(first.render_page("/", 2026).contains("Victor Ginelli"))
+  assert_true(!first.render_page("/", 2026).contains("Another Author"))
+  for
+    (bad_site, bad_resume) in [
+      ("{", resume_content),
+      (site, "{"),
+      ("{}", resume_content),
+      (site, "{}"),
+    ] {
+    let rejected : Renderer? = Some(Renderer::new(bad_site, bad_resume)) catch {
+      InvalidConfig(_) => None
+    }
+    assert_true(rejected is None)
+    assert_eq(
+      first.page_metadata("/"),
+      page_metadata("/", site, resume_content),
+    )
+  }
+  let recovered = Renderer::new(site, resume_content)
+  assert_eq(
+    recovered.render_page("/resume", 2028),
+    first.render_page("/resume", 2028),
+  )
+}
