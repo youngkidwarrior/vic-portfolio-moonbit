@@ -20,9 +20,19 @@ const server = http.createServer((request, response) => {
     file = path.join(output, '404.html');
   }
   const type = types[path.extname(file)] || 'application/octet-stream';
+  const accepted = (request.headers['accept-encoding'] || '').split(',').map(value => value.trim().split(';').map(part => part.trim()));
+  const quality = name => {
+    const encoding = accepted.find(([value]) => value === name) || accepted.find(([value]) => value === '*');
+    if (!encoding) return 0;
+    const parameter = encoding.slice(1).find(value => value.startsWith('q='));
+    return parameter ? Number(parameter.slice(2)) : 1;
+  };
+  const encoding = ['br', 'gzip'].find(name => quality(name) > 0 && fs.existsSync(`${file}.${name === 'br' ? 'br' : 'gz'}`));
+  if (encoding) file += encoding === 'br' ? '.br' : '.gz';
   response.writeHead(status, {
-    'Content-Type': type, 'Cache-Control': 'no-cache',
+    'Content-Type': type, 'Cache-Control': 'no-cache', 'Vary': 'Accept-Encoding',
     'Content-Length': fs.statSync(file).size,
+    ...(encoding ? { 'Content-Encoding': encoding } : {}),
   });
   if (request.method === 'HEAD') return response.end();
   fs.createReadStream(file).pipe(response);

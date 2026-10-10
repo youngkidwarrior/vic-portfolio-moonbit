@@ -4,8 +4,9 @@ import { build } from 'vite';
 import { root } from './toolchain.mjs';
 import { compile, routes } from './compile.mjs';
 import { documentHtml } from './document.mjs';
+import { compressAssets } from './compress.mjs';
 
-const { render } = await compile();
+const { render } = await compile({ release: true });
 await build({ root: path.join(root, 'web'), publicDir: path.join(root, 'public'), build: { outDir: path.join(root, 'dist'), emptyOutDir: true } });
 const output = fs.readFileSync(path.join(root, 'dist/index.html'), 'utf8');
 const scripts = [...output.matchAll(/<script\b[^>]*type="module"[^>]*>.*?<\/script>/gs)].map(match => match[0]).join('\n');
@@ -18,4 +19,5 @@ for (const route of routes) {
   fs.writeFileSync(path.join(dir, 'index.html'), documentHtml({ ...render(route), scripts, styles }));
 }
 fs.writeFileSync(path.join(root, 'dist/404.html'), documentHtml({ ...render('/not-found'), scripts, styles }));
+compressAssets(path.join(root, 'dist'));
 console.log(`Prerendered ${routes.length} routes with the MoonBit renderer.`);

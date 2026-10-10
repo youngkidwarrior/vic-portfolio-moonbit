@@ -1,6 +1,6 @@
 const escapeAttribute = value => String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 
-const devStyles = ['fonts', 'app', 'hero-art', 'project-art', 'artwork-playback', 'port']
+const devStyles = ['reset', 'fonts', 'app', 'hero-art', 'project-art', 'artwork-playback', 'port', 'project-transition']
   .map(name => `<link rel="stylesheet" href="/styles/${name}.css">`).join('\n');
 
 export function documentHtml({ body, metadata, scripts = '<script type="module" src="/host.js"></script>', styles = devStyles }) {
@@ -21,8 +21,10 @@ export function documentHtml({ body, metadata, scripts = '<script type="module" 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${image}">
 <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/runtime/portfolio.wasm" as="fetch" type="application/wasm" crossorigin>
+${new URL(metadata.canonical).pathname === '/' ? '<link rel="preload" href="/images/victor-portrait.webp" as="image" fetchpriority="high">' : ''}
 ${styles}
-<script>try { const theme = localStorage.getItem('portfolio-theme'); document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch { document.documentElement.dataset.theme = 'light'; }</script>
+<script>document.documentElement.dataset.js = 'enabled'; try { const theme = localStorage.getItem('portfolio-theme'); document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch { document.documentElement.dataset.theme = 'light'; }</script>
 ${scripts}
 </head>
 <body><div id="app">${body}</div></body>
