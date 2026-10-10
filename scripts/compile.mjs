@@ -22,7 +22,8 @@ export async function compile({ release = false } = {}) {
   const renderer = await import(`${pathToFileURL(path.join(root, 'public/runtime/portfolio.js')).href}?build=${Date.now()}`);
   const site = fs.readFileSync(path.join(root, 'content/site.json'), 'utf8');
   const resume = fs.readFileSync(path.join(root, 'content/resume.json'), 'utf8');
-  const render = route => ({ body: renderer.render_page(route, site, resume, new Date().getFullYear()), metadata: JSON.parse(renderer.page_metadata(route, site, resume)) });
+  const content = renderer.create_renderer(site, resume);
+  const render = route => ({ body: renderer.render_with(content, route, new Date().getFullYear()), metadata: JSON.parse(renderer.metadata_with(content, route)) });
   fs.writeFileSync(path.join(root, 'web/index.html'), documentHtml({ ...render('/'), ...(release ? { styles: '<link rel="stylesheet" href="/styles.css">' } : {}) }));
   return { render, renderer };
 }

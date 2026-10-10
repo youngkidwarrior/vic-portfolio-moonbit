@@ -1,10 +1,20 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "youngkidwarrior/vic-portfolio/cmd/browser"
 
+import {
+  "youngkidwarrior/vic-portfolio",
+}
+
 // Values
+pub fn create_renderer(String, String) -> @vic-portfolio.Renderer
+
+pub fn metadata_with(@vic-portfolio.Renderer, String) -> String
+
 pub fn page_metadata(String, String, String) -> String
 
 pub fn render_page(String, String, String, Int) -> String
+
+pub fn render_with(@vic-portfolio.Renderer, String, Int) -> String
 
 pub fn route_status(String) -> Int
 

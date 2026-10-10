@@ -4,8 +4,7 @@ const root = document.documentElement;
 const app = document.getElementById('app');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let renderer;
-let siteJson;
-let resumeJson;
+let content;
 let route = location.pathname;
 let menuOpen = false;
 let disposeMotion = () => {};
@@ -54,7 +53,7 @@ function setMenu(open, focus = false) {
 }
 
 function metadata(path) {
-  const meta = JSON.parse(renderer.page_metadata(path, siteJson, resumeJson));
+  const meta = JSON.parse(renderer.metadata_with(content, path));
   document.title = meta.title;
   const values = { description: meta.description, 'og:title': meta.title, 'og:description': meta.description, 'og:url': meta.canonical, 'og:image': meta.image, 'og:image:secure_url': meta.image, 'twitter:image': meta.image };
   for (const [key, value] of Object.entries(values)) {
@@ -100,7 +99,7 @@ async function showPage(url, savedScroll, focus = true) {
   const update = () => {
     if (changed) {
       disposeMotion();
-      app.innerHTML = renderer.render_page(url.pathname, siteJson, resumeJson, new Date().getFullYear());
+      app.innerHTML = renderer.render_with(content, url.pathname, new Date().getFullYear());
       route = url.pathname;
       menuOpen = false;
       metadata(route);
@@ -140,8 +139,7 @@ async function navigate(url) {
 async function initialize() {
   const [runtime, site, resume] = await Promise.all([loadRenderer(), fetchText('/content/site.json'), fetchText('/content/resume.json')]);
   renderer = runtime.api;
-  siteJson = site;
-  resumeJson = resume;
+  content = renderer.create_renderer(site, resume);
   history.scrollRestoration = 'manual';
   history.replaceState({ ...history.state, portfolio: true, scroll: [scrollX, scrollY] }, '', location.href);
   syncControls();

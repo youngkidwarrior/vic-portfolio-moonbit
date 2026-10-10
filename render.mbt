@@ -99,6 +99,25 @@ fn home_title(site : Site) -> String {
 }
 
 ///|
+/// Validated content owned by one renderer. Private fields prevent callers from
+/// mutating the parsed arrays; each context is independent and has no cache.
+pub struct Renderer {
+  priv site : Site
+  priv resume_content : Resume
+}
+
+///|
+/// Parses both documents before publishing a usable renderer.
+pub fn Renderer::new(
+  site_json : String,
+  resume_json : String,
+) -> Renderer raise PortfolioError {
+  let site = Site::from_json_text(site_json)
+  let resume_content = Resume::from_json_text(resume_json)
+  { site, resume_content, }
+}
+
+///|
 /// Renders the complete site shell for a request path.
 ///
 /// `path` may carry a trailing slash, a query string, or a fragment; it is
@@ -110,8 +129,18 @@ pub fn render_page(
   resume_json : String,
   year : Int,
 ) -> String raise PortfolioError {
-  let site = Site::from_json_text(site_json)
-  let resume_content = Resume::from_json_text(resume_json)
+  Renderer::new(site_json, resume_json).render_page(path, year)
+}
+
+///|
+/// Renders with previously validated content and the current request year.
+pub fn Renderer::render_page(
+  self : Renderer,
+  path : String,
+  year : Int,
+) -> String raise PortfolioError {
+  let site = self.site
+  let resume_content = self.resume_content
   let normalized = normalize_path(path)
   let route = Route::from_path(normalized)
   let body = render_route(route, site, resume_content, normalized)
@@ -126,8 +155,17 @@ pub fn page_metadata(
   site_json : String,
   resume_json : String,
 ) -> String raise PortfolioError {
-  let site = Site::from_json_text(site_json)
-  let resume_content = Resume::from_json_text(resume_json)
+  Renderer::new(site_json, resume_json).page_metadata(path)
+}
+
+///|
+/// Builds metadata from the same validated content as the rendered body.
+pub fn Renderer::page_metadata(
+  self : Renderer,
+  path : String,
+) -> String raise PortfolioError {
+  let site = self.site
+  let resume_content = self.resume_content
   let normalized = normalize_path(path)
   let route = Route::from_path(normalized)
   let (title, description, image) = match route {

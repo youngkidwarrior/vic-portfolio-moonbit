@@ -1,4 +1,39 @@
 ///|
+/// Creates an isolated content context. Invalid input fails before a context is
+/// returned, so existing contexts remain usable after a failed replacement.
+pub fn create_renderer(
+  site_json : String,
+  resume_json : String,
+) -> @portfolio.Renderer {
+  @portfolio.Renderer::new(site_json, resume_json) catch {
+    @portfolio.InvalidConfig(message) =>
+      abort("create_renderer: invalid configuration: \{message}")
+  }
+}
+
+///|
+/// Renders using an explicitly supplied content context.
+pub fn render_with(
+  renderer : @portfolio.Renderer,
+  path : String,
+  year : Int,
+) -> String {
+  renderer.render_page(path, year) catch {
+    @portfolio.InvalidConfig(message) =>
+      abort("render_with: invalid configuration: \{message}")
+  }
+}
+
+///|
+/// Builds metadata using an explicitly supplied content context.
+pub fn metadata_with(renderer : @portfolio.Renderer, path : String) -> String {
+  renderer.page_metadata(path) catch {
+    @portfolio.InvalidConfig(message) =>
+      abort("metadata_with: invalid configuration: \{message}")
+  }
+}
+
+///|
 /// Renders the complete site shell for a request path.
 ///
 /// `path` may carry a trailing slash, a query string, or a fragment. The

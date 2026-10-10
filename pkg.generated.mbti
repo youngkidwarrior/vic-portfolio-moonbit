@@ -83,6 +83,13 @@ pub struct Recognition {
   supporting_proof : Array[Proof]
 }
 
+pub struct Renderer {
+  // private fields
+}
+pub fn Renderer::new(String, String) -> Self raise PortfolioError
+pub fn Renderer::page_metadata(Self, String) -> String raise PortfolioError
+pub fn Renderer::render_page(Self, String, Int) -> String raise PortfolioError
+
 pub struct Resume {
   name : String
   title : String
