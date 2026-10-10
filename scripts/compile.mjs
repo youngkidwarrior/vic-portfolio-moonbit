@@ -8,7 +8,7 @@ export const routes = ['/', '/work/send', '/work/shenanigan', '/work/brightid', 
 
 export async function compile({ release = false } = {}) {
   if (!fs.existsSync(path.join(root, 'cmd/browser/moon.pkg'))) {
-    throw new Error('The MoonBit browser renderer has not been authored yet. See docs/plans/2026-10-10-portfolio-port.md for the pending authoring dependency.');
+    throw new Error('Missing cmd/browser/moon.pkg. Run the build from a complete project checkout.');
   }
   const mode = release ? ['--release'] : [];
   runMoon(['build', ...mode, '--target', 'wasm-gc', '--deny-warn', 'cmd/browser'], `build-wasm-gc-${release ? 'release' : 'debug'}`);

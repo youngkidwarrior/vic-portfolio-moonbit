@@ -1,0 +1,86 @@
+[
+  {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "route": "/"
+  },
+  {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "route": "/work/send"
+  },
+  {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "route": "/resume"
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "route": "/"
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "route": "/work/send"
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "route": "/resume"
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "route": "/"
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "route": "/work/send"
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "route": "/resume"
+  },
+  {
+    "viewport": [
+      320,
+      800
+    ],
+    "route": "/"
+  },
+  {
+    "viewport": [
+      320,
+      800
+    ],
+    "route": "/work/send"
+  },
+  {
+    "viewport": [
+      320,
+      800
+    ],
+    "route": "/resume"
+  }
+]
