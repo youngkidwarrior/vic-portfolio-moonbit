@@ -1,0 +1,58 @@
+/* Only the selected project's authentic image and printed rule cross routes. */
+.project-screenshot,
+.case-screenshot {
+  position: relative;
+  border-top-color: transparent;
+}
+
+.project-transition-frame {
+  position: absolute;
+  inset: -2px 0 auto;
+  height: 2px;
+  background: var(--project-color, var(--accent));
+  pointer-events: none;
+}
+
+/* Router restores the destination scroll position before taking its snapshot. */
+html:active-view-transition {
+  scroll-behavior: auto;
+}
+
+::view-transition-group(*) {
+  animation-duration: 440ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Keep page text and chrome still, with no whole-document crossfade. */
+::view-transition-group(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  opacity: 0;
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(*) {
+  opacity: 0;
+}
+
+::view-transition-new(*) {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

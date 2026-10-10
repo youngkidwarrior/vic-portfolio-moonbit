@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-10",
+  "production": "https://victor.she.energy",
+  "moonbit": "http://127.0.0.1:5173",
+  "method": "Computer-use screenshots, navigation/menu interaction, and read-only DOM measurements in the same in-app browser tab. Viewport dimensions were verified on each measurement. No product files were changed.",
+  "home": [
+    {"viewport": [1440,1000], "productionHeroHeight":780, "moonbitHeroHeight":934, "productionPortraitHeight":449, "moonbitPortraitHeight":786},
+    {"viewport": [768,1024], "productionHeroHeight":992, "moonbitHeroHeight":1278, "productionPortraitHeight":511, "moonbitPortraitHeight":786},
+    {"viewport": [390,844], "productionHeroHeight":1001, "moonbitHeroHeight":1484, "productionPortraitHeight":313, "moonbitPortraitHeight":786},
+    {"viewport": [320,800], "productionHeroHeight":936, "moonbitHeroHeight":1489, "productionPortraitHeight":245, "moonbitPortraitHeight":786}
+  ],
+  "mobileMenu": {"viewport":[390,844], "productionHeight":242.5625, "moonbitHeight":228.1875},
+  "geometry": [
+    {"viewport":[1440,1000], "route":"/", "productionMainHeight":4177, "moonbitMainHeight":4373},
+    {"viewport":[1440,1000], "route":"/work/send", "productionMainHeight":2558, "moonbitMainHeight":2719},
+    {"viewport":[1440,1000], "route":"/resume", "productionMainHeight":2848, "moonbitMainHeight":2983},
+    {"viewport":[768,1024], "route":"/", "productionMainHeight":5353, "moonbitMainHeight":5671},
+    {"viewport":[768,1024], "route":"/work/send", "productionMainHeight":2152, "moonbitMainHeight":2243},
+    {"viewport":[768,1024], "route":"/resume", "productionMainHeight":2843, "moonbitMainHeight":2990},
+    {"viewport":[390,844], "route":"/", "productionMainHeight":4658, "moonbitMainHeight":5181},
+    {"viewport":[390,844], "route":"/work/send", "productionMainHeight":2157, "moonbitMainHeight":2248},
+    {"viewport":[390,844], "route":"/resume", "productionMainHeight":4340, "moonbitMainHeight":4521},
+    {"viewport":[320,800], "route":"/", "productionMainHeight":4767, "moonbitMainHeight":5393},
+    {"viewport":[320,800], "route":"/work/send", "productionMainHeight":2323, "moonbitMainHeight":2414},
+    {"viewport":[320,800], "route":"/resume", "productionMainHeight":4963, "moonbitMainHeight":5143}
+  ],
+  "findings": [
+    {"priority":"high", "finding":"The portrait retains its HTML height of 786px at every tested width. Production scales it proportionally. The face is heavily cropped and the hero is too tall, delaying work content.", "cause":"The port removes the Tailwind import but omits its img,video height:auto reset. public/styles/app.css:58 has max-width but no automatic image height.", "recommendation":"Restore the relevant reset, beginning with image height:auto."},
+    {"priority":"high", "finding":"Section/project headings, case-study titles, and resume headings are much bolder. Case-study and resume h1 weight is 700 in the port versus 400 in production. The homepage h1 explicitly uses 620 in both.", "cause":"The omitted Tailwind heading reset uses font-weight:inherit. Browser defaults remain in the port.", "recommendation":"Restore heading inheritance and review all implicit typography defaults."},
+    {"priority":"medium", "finding":"Body line height is normal in the port versus 24px in production. Menu height, paragraph spacing, captions, list spacing, and total page heights differ.", "cause":"Production has a base line-height:1.5 and zero margin/padding reset; the port retains several user-agent defaults.", "recommendation":"Restore the rest of the relevant preflight semantics before tuning individual components."},
+    {"priority":"medium", "finding":"The hero rule/text entrance and project artwork reveals differ. Production shows animated hero rule growth and staggered hero text; the port host does not animate the data-hero-line or data-hero-rule nodes. Artwork appears with a different sequence.", "cause":"web/host.js mountMotion animates reveal nodes and artwork layers but has no hero text/rule animation.", "recommendation":"Decide which motion behaviors require parity, then compare their visible states and timing explicitly."},
+    {"priority":"low", "finding":"MoonBit substitutes different arrow, theme, and menu SVGs. Shapes and stroke treatment differ slightly.", "recommendation":"Reuse the original SVG paths if exact visual parity is desired."}
+  ],
+  "matching": [
+    "Home, Send case study and resume have no horizontal overflow at 1440, 768, 390 or 320 pixels.",
+    "The remaining three case studies also have no horizontal overflow at 390 pixels; their visible main content matches production and no completed image load is broken.",
+    "Navigation collapses at tablet/mobile sizes; both menus open and their Resume links navigate.",
+    "The homepage h1 font/weight, main content, real images, colors, and broad responsive structure are retained."
+  ],
+  "performance": {
+    "httpEvidence": "first-load-transfer.json",
+    "documentTtfbMedianMs": {"production":202.653, "moonbitDev":7.657},
+    "explicitAssetTransferBytes": {"productionPreloadedJavaScript":151063, "moonbitDevScriptWasmAndContent":438180},
+    "moonbitAssetBreakdownBytes": {"viteClient":179258, "hostWithDevTransform":58752, "wasm":188558, "siteJson":7991, "resumeJson":3621},
+    "status":"Browser paint/interactivity audit pending Mac unlock or explicit authorization for a separate automated timing audit. The in-app browser read-only evaluator does not expose performance APIs.",
+    "limitations":"HTTP timing and selected asset transfers do not measure FCP, LCP, CLS, or readiness. Development versus production, loopback versus public network, and uncompressed versus compressed delivery are confounded. No claim that MoonBit is faster or slower is supported."
+  }
+}

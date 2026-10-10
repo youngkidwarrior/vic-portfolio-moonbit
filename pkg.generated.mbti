@@ -1,0 +1,153 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "youngkidwarrior/vic-portfolio"
+
+// Values
+pub fn normalize_path(String) -> String
+
+pub fn page_metadata(String, String, String) -> String raise PortfolioError
+
+pub fn render_page(String, String, String, Int) -> String raise PortfolioError
+
+pub fn route_status(String) -> Int
+
+pub fn toggle_menu(Bool) -> Bool
+
+pub fn toggle_theme(String) -> String
+
+// Errors
+pub suberror PortfolioError {
+  InvalidConfig(String)
+}
+
+// Types and methods
+pub enum Accent {
+  Cobalt
+  Red
+  Green
+  Yellow
+}
+pub fn Accent::from_name(String) -> Self?
+pub fn Accent::name(Self) -> String
+
+pub struct Contribution {
+  title : String
+  detail : String
+}
+
+pub struct Education {
+  school : String
+  detail : String
+}
+
+pub struct Experience {
+  company : String
+  role : String
+  period : String
+  bullets : Array[String]
+}
+
+pub struct Project {
+  slug : ProjectSlug
+  title : String
+  period : String
+  role : String
+  lede : String
+  accent : Accent
+  links : Array[ProjectLink]
+  screenshot : Screenshot
+  contributions : Array[Contribution]
+}
+
+pub struct ProjectLink {
+  label : String
+  href : String
+}
+
+pub enum ProjectSlug {
+  Send
+  Shenanigan
+  BrightId
+  OpenSource
+}
+pub fn ProjectSlug::all() -> Array[Self]
+pub fn ProjectSlug::from_slug(String) -> Self?
+pub fn ProjectSlug::slug(Self) -> String
+
+pub struct Proof {
+  label : String
+  source : String
+}
+
+pub struct Recognition {
+  headline : String
+  supporting_proof : Array[Proof]
+}
+
+pub struct Resume {
+  name : String
+  title : String
+  location : String
+  email : String
+  website : String
+  profile : String
+  experience : Array[Experience]
+  skills : Array[Skill]
+  recognition : ResumeRecognition
+  education : Education
+}
+pub fn Resume::from_json_text(String) -> Self raise PortfolioError
+
+pub struct ResumeRecognition {
+  title : String
+  detail : String
+}
+
+pub enum Route {
+  Home
+  CaseStudy(ProjectSlug)
+  Resume
+  NotFound
+}
+pub fn Route::from_path(String) -> Self
+
+pub struct Screenshot {
+  src : String
+  webp_src : String
+  href : String
+  width : Int
+  height : Int
+  alt : String
+  caption : String
+}
+
+pub struct Site {
+  name : String
+  role : String
+  url : String
+  social_image : String
+  email : String
+  github : String
+  resume_pdf : String
+  description : String
+  projects : Array[Project]
+  recognition : Recognition
+}
+pub fn Site::from_json_text(String) -> Self raise PortfolioError
+pub fn Site::project(Self, ProjectSlug) -> Project?
+
+pub struct Skill {
+  label : String
+  items : String
+}
+
+pub enum Theme {
+  Light
+  Dark
+}
+pub fn Theme::from_name(String) -> Self
+pub fn Theme::name(Self) -> String
+pub fn Theme::next(Self) -> Self
+
+// Type aliases
+
+// Traits

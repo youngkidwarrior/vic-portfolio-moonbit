@@ -1,0 +1,31 @@
+import {
+  "youngkidwarrior/vic-portfolio" @portfolio,
+}
+
+pkgtype(kind: "executable")
+
+options(
+  link: {
+    "wasm-gc": {
+      "exports": [
+        "render_page",
+        "page_metadata",
+        "route_status",
+        "toggle_theme",
+        "toggle_menu",
+      ],
+      "use-js-builtin-string": true,
+      "imported-string-constants": "_",
+    },
+    "js": {
+      "exports": [
+        "render_page",
+        "page_metadata",
+        "route_status",
+        "toggle_theme",
+        "toggle_menu",
+      ],
+      "format": "esm",
+    },
+  },
+)

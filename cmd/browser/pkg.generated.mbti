@@ -1,0 +1,21 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "youngkidwarrior/vic-portfolio/cmd/browser"
+
+// Values
+pub fn page_metadata(String, String, String) -> String
+
+pub fn render_page(String, String, String, Int) -> String
+
+pub fn route_status(String) -> Int
+
+pub fn toggle_menu(Bool) -> Bool
+
+pub fn toggle_theme(String) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

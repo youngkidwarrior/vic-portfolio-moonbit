@@ -1,0 +1,64 @@
+{
+  "name": "Victor Ginelli",
+  "title": "Founder and full-stack product engineer",
+  "location": "Los Angeles area",
+  "email": "victor@she.energy",
+  "website": "victor.she.energy",
+  "profile": "Founder and full-stack product engineer with 8+ years building payments, identity, mobile, and community products. Has led teams and taken complex systems from concept to production.",
+  "experience": [
+    {
+      "company": "Send",
+      "role": "Senior full-stack engineer",
+      "period": "Dec 2023 - Aug 2026",
+      "bullets": [
+        "Led a passkey-secured virtual debit card from architecture through launch, spanning wallet ownership, identity checks, issuance, funding, authentication, lifecycle controls, webhooks, and durable workflows.",
+        "Designed activity scoring and token distribution that allocated 81M+ SEND, equal to 27% of the community allocation.",
+        "Helped move Send from a PWA to native apps on a shared TypeScript foundation, supporting 15 iOS releases, 1K+ Android downloads, 70K+ passkeys, and 20K Sendtags.",
+        "Moved payment execution to durable workflows for a platform with $53M+ in onchain transfer volume, covering confirmation, reconciliation, retries, activity updates, and notifications.",
+        "Shipped social payment features including group payments, conversational sends, public activity, reactions, transaction detail, and cross-platform notifications."
+      ]
+    },
+    {
+      "company": "Shenanigan Tech LLC",
+      "role": "Founder and technical lead",
+      "period": "2018 - 2023",
+      "bullets": [
+        "Built an athlete and fan platform for creating and livestreaming challenges, direct support, fan communities, and collectibles.",
+        "Created Dripp and $PANTS, a cross-community rewards campaign that extended operating runway by 12 months.",
+        "Paired Gitcoin fundraising with $PRTCLE incentives, contributing to a $100K+ community raise.",
+        "Led six recurring contributors and two contractors, and designed public governance and contribution rewards around measurable participation."
+      ]
+    },
+    {
+      "company": "BrightID Discord Bot",
+      "role": "Project lead",
+      "period": "2020 - 2023",
+      "bullets": [
+        "Took an identity-verification bot from hackathon prototype to a production service that verified 11,000+ people in one year.",
+        "Migrated deployment from Heroku to Railway and operated a dedicated BrightID node."
+      ]
+    },
+    {
+      "company": "Ethereum and DAO ecosystem",
+      "role": "Selected open-source contributor",
+      "period": "2018 - 2023",
+      "bullets": [
+        "Shipped React, Solidity, payment, and identity improvements across SourceCred, Honeyswap, BrightID, and Colony."
+      ]
+    }
+  ],
+  "skills": [
+    { "label": "Languages", "items": "TypeScript, JavaScript, SQL, Solidity, Bash" },
+    { "label": "Web and mobile", "items": "React, React Native, Expo, Next.js, Tamagui, tRPC, Zod, TanStack Query" },
+    { "label": "Systems and data", "items": "Node.js, Bun, Temporal, PostgreSQL, Supabase, Docker, Kubernetes, Tilt" },
+    { "label": "Blockchain and quality", "items": "WebAuthn, passkeys, ERC-4337, Viem, Wagmi, Foundry, Jest, Playwright, Storybook, OpenTelemetry, PostHog" }
+  ],
+  "recognition": {
+    "title": "Winner, Aragon Hack for Freedom",
+    "detail": "Built NFT Request, a prototype for browsing DAO-held NFTs, making token-backed offers, and completing approved exchanges through Aragon governance."
+  },
+  "education": {
+    "school": "Claremont McKenna College",
+    "detail": "Physics and Computer Science, 2018"
+  }
+}

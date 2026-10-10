@@ -1,0 +1,54 @@
+/* Enlarged ink lives around the portrait and below the reading surface. */
+.hero.page-frame {
+  background-color: var(--canvas);
+  background-image: var(--paper-grain);
+  background-size: 8px 8px, 11px 11px, auto;
+}
+.hero-art-scene {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.hero-art-plane { position: absolute; inset: 0; }
+.hero-art-media {
+  position: absolute;
+  left: 8%;
+  bottom: -21%;
+  display: block;
+  width: 122%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1586 / 760;
+  overflow: hidden;
+  opacity: .58;
+  mask-image: linear-gradient(0deg, #000 15%, transparent 65%), linear-gradient(90deg, transparent 37%, #000 72%);
+  mask-composite: add;
+  filter: brightness(1.04) contrast(1.05);
+}
+.hero .hero-portrait {
+  position: relative;
+  z-index: 1;
+  border-top: 0;
+  padding-top: 1.2rem;
+}
+.hero-portrait-rule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: .45rem;
+  background: var(--red);
+  transform-origin: right center;
+}
+:root[data-theme="dark"] .hero-art-scene { mix-blend-mode: screen; }
+:root[data-theme="dark"] .hero-art-media {
+  filter: brightness(1.04) contrast(1.05) invert(1) hue-rotate(180deg);
+}
+@media (max-width: 900px) {
+  .hero-art-media { width: 165%; left: -42%; bottom: -4%; opacity: .64; mask-image: linear-gradient(0deg, #000 60%, transparent); mask-composite: add; }
+  .hero.page-frame { padding-bottom: 4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait-rule { transform: none !important; }
+}

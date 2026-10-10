@@ -1,0 +1,606 @@
+{
+  "checkedAt": "2026-10-10T21:43:26.938Z",
+  "geometry": [
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "route": "/",
+      "mainHeight": 4177,
+      "heroHeight": 780,
+      "portraitHeight": 449,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "620"
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "route": "/work/send",
+      "mainHeight": 2558,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "route": "/resume",
+      "mainHeight": 2848,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "/",
+      "mainHeight": 5353,
+      "heroHeight": 992,
+      "portraitHeight": 511,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "620"
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "/work/send",
+      "mainHeight": 2152,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "route": "/resume",
+      "mainHeight": 2843,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "route": "/",
+      "mainHeight": 4658,
+      "heroHeight": 1001,
+      "portraitHeight": 313,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "620"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "route": "/work/send",
+      "mainHeight": 2157,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "route": "/resume",
+      "mainHeight": 4340,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        320,
+        800
+      ],
+      "route": "/",
+      "mainHeight": 4767,
+      "heroHeight": 936,
+      "portraitHeight": 245,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "620"
+    },
+    {
+      "viewport": [
+        320,
+        800
+      ],
+      "route": "/work/send",
+      "mainHeight": 2323,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    },
+    {
+      "viewport": [
+        320,
+        800
+      ],
+      "route": "/resume",
+      "mainHeight": 4963,
+      "heroHeight": null,
+      "portraitHeight": null,
+      "overflow": 0,
+      "bodyLineHeight": "24px",
+      "h1Weight": "400"
+    }
+  ],
+  "geometryMethod": "Computer-use IAB, same original widths; rounded main heights match production baseline at all 12 pairs.",
+  "menu": {
+    "viewport": [
+      390,
+      844
+    ],
+    "height": 242.5625,
+    "matchesProduction": true
+  },
+  "audits": [
+    {
+      "name": "production-mobile-1",
+      "file": "production-mobile-1.json",
+      "requestedUrl": "https://victor.she.energy/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.98,
+      "metrics": {
+        "first-contentful-paint": 1537.223,
+        "largest-contentful-paint": 2297.223,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1537.223,
+        "total-byte-weight": 1713219
+      }
+    },
+    {
+      "name": "production-mobile-2",
+      "file": "production-mobile-2.json",
+      "requestedUrl": "https://victor.she.energy/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.98,
+      "metrics": {
+        "first-contentful-paint": 1654.6046999999999,
+        "largest-contentful-paint": 2318.6047,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1654.6046999999999,
+        "total-byte-weight": 1713077
+      }
+    },
+    {
+      "name": "moonbit-dev-mobile-1",
+      "file": "moonbit-dev-mobile-1.json",
+      "requestedUrl": "http://127.0.0.1:5173/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.72,
+      "metrics": {
+        "first-contentful-paint": 3008.6903249999996,
+        "largest-contentful-paint": 6309.931799999999,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3008.6903249999996,
+        "total-byte-weight": 2090418
+      }
+    },
+    {
+      "name": "moonbit-release-mobile-1",
+      "file": "moonbit-release-mobile-1.json",
+      "requestedUrl": "http://127.0.0.1:5174/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.94,
+      "metrics": {
+        "first-contentful-paint": 1358.01615,
+        "largest-contentful-paint": 3088.3602499999997,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1358.01615,
+        "total-byte-weight": 1683175
+      }
+    },
+    {
+      "name": "moonbit-release-bundled-mobile-1",
+      "file": "moonbit-release-bundled-mobile-1.json",
+      "requestedUrl": "http://127.0.0.1:5174/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.94,
+      "metrics": {
+        "first-contentful-paint": 1205.3287500000001,
+        "largest-contentful-paint": 3046.216875,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1205.3287500000001,
+        "total-byte-weight": 1679171
+      }
+    },
+    {
+      "name": "moonbit-release-bundled-mobile-2",
+      "file": "moonbit-release-bundled-mobile-2.json",
+      "requestedUrl": "http://127.0.0.1:5174/",
+      "lighthouse": "13.4.1",
+      "settings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": true
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "devtools",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": true,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": "",
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance"
+        ],
+        "skipAudits": null
+      },
+      "score": 0.94,
+      "metrics": {
+        "first-contentful-paint": 1206.69255,
+        "largest-contentful-paint": 3054.807975,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1206.69255,
+        "total-byte-weight": 1679171
+      }
+    }
+  ],
+  "limitations": [
+    "Production has a remote HTTPS host; rewrite is a local HTTP preview. Lighthouse uses identical simulated slow 4G/mobile CPU settings, but this is not a controlled language benchmark.",
+    "Only two final release and two production runs; dev and pre-bundle release each have one run.",
+    "Motion parameters now follow the original, but physical-device timing and exact spring integration parity remain unestablished.",
+    "Eight MoonBit SVG paths remain unchanged: authenticated SeekMoon authoring was blocked by automatic approval review pending explicit DeepSeek data-sharing approval."
+  ],
+  "checks": {
+    "browser": {
+      "passed": 27,
+      "skipped": 1,
+      "failed": 0,
+      "seconds": 8.3
+    },
+    "moonbit": {
+      "wasmGc": 10,
+      "js": 10,
+      "denyWarnings": true
+    },
+    "compression": {
+      "brotliWasmBytes": 43232,
+      "rawWasmBytes": 97415,
+      "mime": "application/wasm",
+      "q0Honored": true
+    }
+  },
+  "originalRepositoryUntouched": true
+}
