@@ -1,0 +1,4 @@
+import {
+  "justjavac/template",
+  "moonbitlang/core/json",
+}

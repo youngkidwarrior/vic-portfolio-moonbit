@@ -1,0 +1,21 @@
+.DS_Store
+_build/
+target/
+target
+.mooncakes/
+.moonagent/
+.openseek/
+node_modules/
+dist/
+public/runtime/
+public/content/
+web/index.html
+test-results/
+playwright-report/
+# Keep local authoring transcripts, browser traces, audit exports and process logs local.
+evidence/**
+!evidence/production-comparison.json
+!evidence/parity-fix/
+!evidence/parity-fix/results.json
+evidence/seekmoon/**/sessions/
+evidence/seekmoon/scratch/

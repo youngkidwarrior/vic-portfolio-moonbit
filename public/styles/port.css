@@ -1,0 +1,20 @@
+.site-header { view-transition-name: portfolio-header; }
+.site-footer { view-transition-name: portfolio-footer; }
+.hero-convergence { aspect-ratio: 1586 / 760; }
+.project-art-pointer, .portrait-ink { transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+.simple-project:hover .project-copy h3 { transform: translateX(7px); }
+.project-copy h3 { transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.icon-button svg { width: 20px; height: 20px; }
+[data-reveal] { opacity: 1; }
+.runtime-notice { margin: 0; padding: 1rem var(--pad); background: var(--surface); color: var(--ink); }
+html:not([data-runtime]) .primary-nav { display: flex; }
+@media (max-width: 900px) {
+  html:not([data-runtime]) .primary-nav { position: static; flex-direction: row; flex-wrap: wrap; padding: 0; border: 0; gap: .5rem 1rem; }
+  html:not([data-runtime]) .nav-shell { height: auto; min-height: 76px; flex-wrap: wrap; padding-block: .6rem; gap: .75rem; }
+  html:not([data-runtime]) .site-header { height: auto; }
+  html:not([data-runtime]) .nav-actions { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .simple-project:hover .project-copy h3 { transform: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
